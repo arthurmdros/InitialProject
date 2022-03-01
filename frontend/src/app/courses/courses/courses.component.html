@@ -12,7 +12,15 @@
       <!-- Category Column -->
       <ng-container matColumnDef="category">
         <th mat-header-cell *matHeaderCellDef> Categoria </th>
-        <td mat-cell *matCellDef="let course"> {{course.category}} </td>
+        <td mat-cell *matCellDef="let course"> {{course.category}}</td>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container matColumnDef="progress">
+        <th mat-header-cell *matHeaderCellDef> Progresso </th>
+        <td mat-cell *matCellDef="let course"> {{course.progress}}
+          <mat-icon aria-hidden="false" aria-label="Status do andamento">{{ course.progress | progress}}</mat-icon>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
