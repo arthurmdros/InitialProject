@@ -7,11 +7,12 @@ import { Course } from '../model/course';
   providedIn: 'root'
 })
 export class CoursesService {
+
+  private readonly API = '/assets/courses.json';
+
   constructor(private httpClient: HttpClient) { }
 
-  findAll(): Course[] {
-    return [
-      {_id: '1', name: 'Angular', category: 'FrontEnd' }
-    ];
+  findAll() {
+    return this.httpClient.get<Course[]>(this.API);
   }
 }
