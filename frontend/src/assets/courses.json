@@ -1,6 +1,6 @@
 [
-  {"_id": "1", "name": "Angular", "category": "FrontEnd" },
-  {"_id": "2", "name": "Spring boot", "category": "BackEnd" },
-  {"_id": "3", "name": "React", "category": "FrontEnd" },
-  {"_id": "4", "name": "Android", "category": "Mobile" }
+  {"_id": "1", "name": "Angular", "category": "FrontEnd", "progress": "Em progresso" },
+  {"_id": "2", "name": "Spring boot", "category": "BackEnd", "progress": "Concluído" },
+  {"_id": "3", "name": "React", "category": "FrontEnd", "progress": "Concluído" },
+  {"_id": "4", "name": "Android", "category": "Mobile", "progress": "Não concluído" }
 ]
