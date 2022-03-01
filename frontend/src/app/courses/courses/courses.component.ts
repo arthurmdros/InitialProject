@@ -12,14 +12,10 @@ export class CoursesComponent implements OnInit {
   courses: Course[] = [];
   displayedColumns = ["name", "category"];
 
-  coursesService: CoursesService;
-
-  constructor() {
-    this.coursesService = new CoursesService();
-    this.courses = this.coursesService.findAll();
-  }
+  constructor(private  coursesService: CoursesService) {  }
 
   ngOnInit(): void {
+    this.courses = this.coursesService.findAll();
   }
 
 }
