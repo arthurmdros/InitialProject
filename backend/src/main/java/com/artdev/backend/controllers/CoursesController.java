@@ -3,10 +3,11 @@ package com.artdev.backend.controllers;
 import java.util.List;
 
 import com.artdev.backend.model.Course;
-import com.artdev.backend.repository.CourseRepository;
+import com.artdev.backend.services.CoursesService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
@@ -16,11 +17,10 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class CoursesController {
 
-    private final CourseRepository courseRepository;
+    private final CoursesService service;
 
     @GetMapping
-    public  List<Course> list() {
-        return courseRepository.findAll();
+    public @ResponseBody List<Course> list() {
+        return service.findAll();
     }
-
 }
