@@ -1,12 +1,7 @@
 package com.artdev.backend;
 
-import com.artdev.backend.model.Course;
-import com.artdev.backend.repository.CourseRepository;
-
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 
 @SpringBootApplication
@@ -15,19 +10,4 @@ public class CoursesApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CoursesApplication.class, args);
 	}
-
-	@Bean
-	CommandLineRunner initDatabase(CourseRepository courseRepository){
-		return args -> {
-			courseRepository.deleteAll();
-
-			Course c = new Course();
-			c.setName("Angular");
-			c.setCategory("Front-End");
-			c.setProgress("Em andamento");
-
-			courseRepository.save(c);
-		};
-	}
-
 }
