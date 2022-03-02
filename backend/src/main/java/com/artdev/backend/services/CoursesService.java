@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import com.artdev.backend.dto.CourseDto;
 import com.artdev.backend.model.Course;
 import com.artdev.backend.repository.CourseRepository;
 
@@ -25,4 +26,15 @@ public class CoursesService {
 		return repository.findById(id).get();
 	}
 
+	@Transactional
+	public CourseDto savePessoa(CourseDto dto) {		
+		Course course = new Course();
+		
+		course.setName(dto.getName());
+		course.setCategory(dto.getCategory())
+		course.setProgress(dto.getProgress());
+		course = repository.saveAndFlush(course);
+		
+		return new CourseDto(course);
+	}
 }
