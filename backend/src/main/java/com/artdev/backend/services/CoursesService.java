@@ -28,7 +28,7 @@ public class CoursesService {
 	}
 
 	@Transactional
-	public CourseDto savePessoa(CourseDto dto) {		
+	public CourseDto saveCourse(CourseDto dto) {		
 		Course course = new Course();
 		
 		course.setName(dto.getName());
@@ -45,5 +45,18 @@ public class CoursesService {
 		if(courseFound != null) {
 			repository.delete(courseFound);
 		}		
+	}
+	
+	@Transactional
+	public CourseDto updateCourse(CourseDto dto, Long id) {	
+		Course courseFound = repository.getById(id);
+		if(courseFound != null) {
+			courseFound.setName(dto.getName());
+			courseFound.setCategory(dto.getCategory());
+			courseFound.setProgress(dto.getProgress());
+		}		
+		courseFound = repository.saveAndFlush(courseFound);
+		
+		return new CourseDto(courseFound);
 	}
 }
