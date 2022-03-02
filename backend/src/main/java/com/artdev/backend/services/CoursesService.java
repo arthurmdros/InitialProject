@@ -20,4 +20,9 @@ public class CoursesService {
         return repository.findAll();
 	}
 	
+	@Transactional(readOnly = true)
+	public Course findOne(Long id){
+		return repository.findById(id).get();
+	}
+
 }
