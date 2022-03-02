@@ -6,6 +6,7 @@ import com.artdev.backend.dto.CourseDto;
 import com.artdev.backend.model.Course;
 import com.artdev.backend.services.CoursesService;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,5 +37,10 @@ public class CoursesController {
     @PostMapping
 	public CourseDto insert(@RequestBody CourseDto dto) {		
 		return service.savePessoa(dto);		        
+	}
+    
+	@DeleteMapping(value = "/{id}")
+	public void delete(@PathVariable Long id) {
+		service.deleteCourse(id);
 	}
 }

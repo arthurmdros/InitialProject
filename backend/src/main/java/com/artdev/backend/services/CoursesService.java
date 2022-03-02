@@ -3,6 +3,7 @@ package com.artdev.backend.services;
 import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.artdev.backend.dto.CourseDto;
 import com.artdev.backend.model.Course;
@@ -31,10 +32,18 @@ public class CoursesService {
 		Course course = new Course();
 		
 		course.setName(dto.getName());
-		course.setCategory(dto.getCategory())
+		course.setCategory(dto.getCategory());
 		course.setProgress(dto.getProgress());
 		course = repository.saveAndFlush(course);
 		
 		return new CourseDto(course);
+	}
+
+	@Transactional
+	public void deleteCourse(@PathVariable Long id) {
+		Course courseFound = repository.findById(id).get();
+		if(courseFound != null) {
+			repository.delete(courseFound);
+		}		
 	}
 }
