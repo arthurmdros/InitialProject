@@ -9,6 +9,16 @@
             "mainClass": "com.artdev.backend.BackendApplication",
             "projectName": "backend",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-CoursesApplication<backend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.artdev.backend.CoursesApplication",
+            "projectName": "backend",
+            "args": ""
         }
     ]
 }
